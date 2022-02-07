@@ -9,7 +9,7 @@ int flag=  0  ;
 int x ;
 
 using namespace std ;
-void gameloadscreen() ;
+
 int main()
 {
 cout<<"\n\n\t\t\t\t\t Welcome to tic - tac -toe "<<endl;
@@ -23,6 +23,7 @@ int k = 1;
 while(k)
 {
   cin>>x ;
+
   if(x!=1 && x!=2)
   k=1 ;
   else { k =0 ; break ; }
@@ -46,16 +47,16 @@ display() ;
 }
 
 
-void won()
+void won()                       // To Check whether any player has won or not .
 {
     int i =0 , j=0 ;
     for(i=0;i<3;i++)
     {
-      if( ( (board[i][0]==board[i][1])&&(board[i][0]==board[i][2])&&(board[i][0]=='X' ||board[i][0]=='O')) || ((board[0][i]==board[1][i]) && (board[0][i]==board[2][i]) &&  (board[0][i]=='X' ||board[0][i]=='O')) )
+      if( ( (board[i][0]==board[i][1])&&(board[i][0]==board[i][2])&&(board[i][0]=='X' ||board[i][0]=='O')) || ((board[0][i]==board[1][i]) && (board[0][i]==board[2][i]) &&  (board[0][i]=='X' ||board[0][i]=='O')) )  // To check for rows and columns .
       {
         flag = 1 ; }
     }
-      if(board[0][0]==board[1][1] && board[0][0]==board[2][2] && (board[0][0]=='X' || board[0][0]=='O') || board[0][2]==board[1][1] && board[0][2]==board[2][0] && (board[0][2]=='X' || board[0][2]=='O'))
+      if(board[0][0]==board[1][1] && board[0][0]==board[2][2] && (board[0][0]=='X' || board[0][0]=='O') || board[0][2]==board[1][1] && board[0][2]==board[2][0] && (board[0][2]=='X' || board[0][2]=='O'))    // To check for diagonals .
       {  flag = 1 ; }
 
   if(flag==1)
@@ -71,7 +72,7 @@ void won()
 
 }
 
-int over()
+int over()                  // It specifies whether all boxes are fill up or not . // Game has been ended or not i.e  futher move is possible or not .
 {
 int i =0 , j= 0 ;
 
@@ -86,12 +87,12 @@ for(i=0;i<3;i++)
 return 0 ;
 }
 
-void player()
+void player()                        // To play player's move in the board .
 {
 
 int ch =0 ;
 
-  if(x==2)
+  if(x==2)                     // If it's player 2's turn
   {
 
 
@@ -99,14 +100,14 @@ int ch =0 ;
     int opt = 1 ;
 
     do
-    {   cin>>ch ;
+    {   cin>>ch ;                             // Enter the willing position of the player 2 .
      switch (ch)
     {
     case 1: if(board[0][0]!='O' && board[0][0]!='X')
             { board[0][0]='O' ;
               opt =0 ;
             }
-            else { cout<<"Invalid !!"<<endl; opt=1 ;}
+            else { cout<<"Invalid !!"<<endl; opt=1 ;}                // If the entered positon does not exist to enter .
             break ;
     case 2: if(board[0][1]!='O' && board[0][1]!='X')
             { board[0][1]='O' ;
@@ -170,18 +171,18 @@ int ch =0 ;
 
 else if(x==1)
   {
-    cout<<" Now Player 1 ( X ) go ahead !  "<<endl;
+    cout<<" Now Player 1 ( X ) go ahead !  "<<endl;                      // If it's player 1's turn .
     int opt = 1 ;
 
    do
-  {   cin>>ch ;
+  {   cin>>ch ;                                                                // Enter the willing position of the player 1 .
      switch (ch)
   {
     case 1: if(board[0][0]!='O' && board[0][0]!='X')
             { board[0][0]='X' ;
               opt =0 ;
             }
-            else { cout<<"Invalid !!"<<endl; opt=1 ;}
+            else { cout<<"Invalid !!"<<endl; opt=1 ;}                                 // If the entered positon does not exist to enter .
             break ;
     case 2: if(board[0][1]!='O' && board[0][1]!='X')
             { board[0][1]='X' ;
@@ -244,7 +245,7 @@ else if(x==1)
 
 }
 
-void display()
+void display()                                                               // Display the board .
 {
    system("cls");
    cout<<"\n\n\n"<<endl;
@@ -262,5 +263,3 @@ void display()
   }
 
 }
-
-
